@@ -5,7 +5,7 @@
             {label: 'Show Details', name: 'show_details'},
             {label: 'Show Notes', name: 'show_notes'}
         ];
-        component.set('v.columns', [
+        component.set('v.columnsCEB', [
             {type: 'action', typeAttributes: {rowActions: actions}},
             {label: 'Opportunity Owner', fieldName: 'OpportunityOwner', type: 'text', sortable: true, initialWidth: 150},
             {label: 'Opportunity Name', fieldName: 'Name', type: 'text', initialWidth: 130, wrapText: true},
@@ -23,6 +23,25 @@
             {label: 'Region', fieldName: 'Region__c', type: 'text', initialWidth: 80, wrapText: true},
             {label: 'Competitor', fieldName: 'Competitor__c', type: 'text', initialWidth: 100, wrapText: true},
         ]);
+        component.set('v.columnsCIR', [
+            {type: 'action', typeAttributes: {rowActions: actions}},
+            {label: 'Opportunity Owner', fieldName: 'OpportunityOwner', type: 'text', sortable: true, initialWidth: 150},
+            {label: 'Opportunity Name', fieldName: 'Name', type: 'text', initialWidth: 130, wrapText: true},
+            {label: 'Stage', fieldName: 'StageName', type: 'text', sortable: true, initialWidth: 80},
+            {label: 'Business Volume', fieldName: 'Amount', type: 'currency', initialWidth: 100},
+            {label: 'Employee No.', fieldName: 'Employee_No__c', type: 'number', initialWidth: 100},
+            {label: 'Condor', fieldName: 'Condor__c', type: 'text', initialWidth: 80},
+            {label: 'Industry', fieldName: 'Industry__c', type: 'text', initialWidth: 100, wrapText: true},
+            {label: 'Region', fieldName: 'Region__c', type: 'text', initialWidth: 80, wrapText: true},
+            {label: 'Competitor', fieldName: 'Competitor__c', type: 'text', initialWidth: 100, wrapText: true},
+        ]);
+        component.set('v.columnsM', [
+            {type: 'action', typeAttributes: {rowActions: actions}},
+            {label: 'Opportunity Owner', fieldName: 'OpportunityOwner', type: 'text', sortable: true, initialWidth: 150},
+            {label: 'Opportunity Name', fieldName: 'Name', type: 'text', initialWidth: 130, wrapText: true},
+            {label: 'Stage', fieldName: 'StageName', type: 'text', sortable: true, initialWidth: 80},
+            {label: 'Competitor', fieldName: 'Competitor__c', type: 'text', initialWidth: 100, wrapText: true},
+        ]);               
     },
 
     doSearch : function(component, event, helper) {

@@ -3,7 +3,9 @@
     <aura:attribute name="oppties" type="Opportunity[]"/>
     <aura:attribute name="data" type="Object"/>
     <aura:attribute name="recordId" type="String"/>
-    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="columnsCEB" type="List"/> <!-- For Opp Record Type Id is Client Employee Benefits -->
+    <aura:attribute name="columnsCIR" type="List"/> <!-- For Opp Record Type Id is Client Incentives Rewards -->
+    <aura:attribute name="columnsM" type="List"/>   <!-- For Opp Record Type Id is Merchant -->
     <aura:attribute name="doRefresh" type="Boolean" default="false"/>
     <aura:attribute name="selectedOpptyId" type="String"/>
     <aura:attribute name="opptyRecordTypeId" type="String"/>
@@ -47,21 +49,55 @@
             <div aura:id='downloadButton' class='slds-m-around_medium'>
                 <button class="slds-button slds-button--brand" onclick="{!c.downloadCsv}">Download as CSV</button>
             </div>
-            <div aura:id="dataTable">     
-                <div style="height: 400px">
-                    <lightning:datatable
-						class="slds-table_striped slds-scrollable_y"
-                        columns="{!v.columns}"
-                        data="{!v.data}"
-                        keyField="id"
-                        onrowaction="{!c.handleRowAction}"
-                        hideCheckboxColumn="true"
-                        showRowNumberColumn="true"
-                        defaultSortDirection="{!v.defaultSortDirection}"
-                        sortedDirection="{!v.sortDirection}"
-                        sortedBy="{!v.sortedBy}"
-                        onsort="{!c.handleSort}"/>
-                </div>
+            <div aura:id="dataTable">
+                <aura:if isTrue="{! v.opptyRecordTypeId == $Label.c.Opp_Record_Type_Id_Client_Employee_Benefits }">    
+                    <div style="height: 400px">
+                        <lightning:datatable
+                            class="slds-table_striped slds-scrollable_y"
+                            columns="{!v.columnsCEB}"
+                            data="{!v.data}"
+                            keyField="id"
+                            onrowaction="{!c.handleRowAction}"
+                            hideCheckboxColumn="true"
+                            showRowNumberColumn="true"
+                            defaultSortDirection="{!v.defaultSortDirection}"
+                            sortedDirection="{!v.sortDirection}"
+                            sortedBy="{!v.sortedBy}"
+                            onsort="{!c.handleSort}"/>
+                    </div>
+                </aura:if>
+                <aura:if isTrue="{! v.opptyRecordTypeId == $Label.c.Opp_Record_Type_Id_Client_Incentives_Rewards }">    
+                    <div style="height: 400px">
+                        <lightning:datatable
+                            class="slds-table_striped slds-scrollable_y"
+                            columns="{!v.columnsCIR}"
+                            data="{!v.data}"
+                            keyField="id"
+                            onrowaction="{!c.handleRowAction}"
+                            hideCheckboxColumn="true"
+                            showRowNumberColumn="true"
+                            defaultSortDirection="{!v.defaultSortDirection}"
+                            sortedDirection="{!v.sortDirection}"
+                            sortedBy="{!v.sortedBy}"
+                            onsort="{!c.handleSort}"/>
+                    </div>
+                </aura:if>                
+                <aura:if isTrue="{! v.opptyRecordTypeId == $Label.c.Opp_Record_Type_Id_Merchant }">
+                    <div style="height: 400px">
+                        <lightning:datatable
+                            class="slds-table_striped slds-scrollable_y"
+                            columns="{!v.columnsM}"
+                            data="{!v.data}"
+                            keyField="id"
+                            onrowaction="{!c.handleRowAction}"
+                            hideCheckboxColumn="true"
+                            showRowNumberColumn="true"
+                            defaultSortDirection="{!v.defaultSortDirection}"
+                            sortedDirection="{!v.sortDirection}"
+                            sortedBy="{!v.sortedBy}"
+                            onsort="{!c.handleSort}"/>
+                    </div>
+                </aura:if>                 
                 <lightning:layout multipleRows="true" horizontalAlign="center">
                     <lightning:layoutItem padding="around-small" flexibility="auto">
                         <lightning:button label="First" iconName="utility:left" iconPosition="left"

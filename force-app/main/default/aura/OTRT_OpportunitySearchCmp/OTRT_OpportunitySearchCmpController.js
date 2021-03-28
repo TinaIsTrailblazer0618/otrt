@@ -7,6 +7,7 @@
         var isShowingClosedLostOppties = formData.isShowingClosedLostOppties;
         var noteModifiedStartDate = formData.noteModifiedStartDate;
         var noteModifiedEndDate = formData.noteModifiedEndDate;
+        var renderedOnce = formData.renderedOnce;
         console.info("opptyRecordTypeId in Oppty Search: " + opptyRecordTypeId);
         console.info("isShowingOpenOppties in Oppty Search: " + isShowingOpenOppties);
         console.info("isShowingClosedWonOppties in Oppty Search: " + isShowingClosedWonOppties);
@@ -15,7 +16,7 @@
         console.info("noteModifiedEndDate in Oppty Search: " + noteModifiedEndDate);
         //cmp.sampleMethod(param1) e.g. component.find("boatSearchResults") = cmp; search = sampleMethod; opptyRecordTypeId = param1
         var opptySearchResult = component.find("opptySearchResults").search(opptyRecordTypeId, isShowingOpenOppties, isShowingClosedWonOppties, 
-            isShowingClosedLostOppties, noteModifiedStartDate, noteModifiedEndDate);
+            isShowingClosedLostOppties, noteModifiedStartDate, noteModifiedEndDate, renderedOnce);
         console.info("auraMethodResult: " + opptySearchResult);
     }
 })

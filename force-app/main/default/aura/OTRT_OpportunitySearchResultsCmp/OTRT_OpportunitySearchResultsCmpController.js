@@ -53,12 +53,15 @@
             var isShowingClosedLostOppties = params.isShowingClosedLostOppties;
             var noteModifiedStartDate = params.noteModifiedStartDate;
             var noteModifiedEndDate = params.noteModifiedEndDate;
+            var renderedOnce = params.renderedOnce;
             component.set('v.opptyRecordTypeId', opptyRecordTypeId);
             component.set('v.isShowingOpenOppties', isShowingOpenOppties);
             component.set('v.isShowingClosedWonOppties', isShowingClosedWonOppties);
             component.set('v.isShowingClosedLostOppties', isShowingClosedLostOppties);           
             component.set('v.noteModifiedStartDate', noteModifiedStartDate);
             component.set('v.noteModifiedEndDate', noteModifiedEndDate);
+            component.set('v.renderedOnce', renderedOnce);
+            component.set('v.isRenderedOnce', renderedOnce);
             helper.onSearch(component, helper, opptyRecordTypeId, isShowingOpenOppties,
                 isShowingClosedWonOppties, isShowingClosedLostOppties, 
                 noteModifiedStartDate, noteModifiedEndDate);

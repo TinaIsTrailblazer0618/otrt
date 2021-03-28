@@ -1,11 +1,17 @@
-.THIS .slds-scrollable_x {
-
-}
-
 .THIS .slds-scrollable_y {
     min-height: 100px;
 }
 
 .THIS .selected {
     color : orange;
+}
+
+.THIS .placeholder-image {
+    background-image: url(/resource/LWCPlaceholderImage); 
+    background-size: cover; 
+    background-position: center; 
+    height: 250px; 
+    width: 100%; 
+    max-width: 600px; 
+    min-width: 300px;
 }

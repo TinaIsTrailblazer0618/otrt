@@ -81,7 +81,8 @@
                                                         "isShowingClosedWonOppties" : isShowingClosedWonOppties,
                                                         "isShowingClosedLostOppties" : isShowingClosedLostOppties,
                                                         "noteModifiedStartDate" : noteModifiedStartDate,
-                                                        "noteModifiedEndDate" : noteModifiedEndDate}});
+                                                        "noteModifiedEndDate" : noteModifiedEndDate,
+                                                        "renderedOnce" : true}});
                     // When the event is fired, the OTRT_OpportunitySearchCmp action in the client-side controller of the handler component is invoked
                     createEvent.fire();
                 } else {

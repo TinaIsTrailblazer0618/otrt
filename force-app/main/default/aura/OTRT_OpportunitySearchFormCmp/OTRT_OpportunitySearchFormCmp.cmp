@@ -1,6 +1,6 @@
-<aura:component controller="OTRT_OpportunityRecordTypeController" implements="flexipage:availableForAllPageTypes">
+<aura:component controller="OTRT_OpptyRecordTypeController" implements="flexipage:availableForAllPageTypes">
     <!-- ATTRIBUTE -->
-    <aura:attribute name="opptyRecordTypeOptions" type="OTRT_OpportunityRecordTypeController.OpptyRecordType[]"/>
+    <aura:attribute name="opptyRecordTypeOptions" type="OTRT_OpptyRecordTypeController.OpptyRecordType[]"/>
     <aura:attribute name="selectedOpptyRecordType" type="String"/>
     <aura:attribute name="selectedNoteModifiedStartDate" type="Date"/>
     <aura:attribute name="selectedNoteModifiedEndDate" type="Date"/>

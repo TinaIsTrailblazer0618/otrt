@@ -13,8 +13,8 @@ private class OTRT_OpptyRecordTypeController_Test {
         }
 
         Test.startTest();
-        List<OTRT_OpportunityRecordTypeController.OpptyRecordType> ortLst = 
-            OTRT_OpportunityRecordTypeController.getOpptyRecordTypes();
+        List<OTRT_OpptyRecordTypeController.OpptyRecordType> ortLst = 
+            OTRT_OpptyRecordTypeController.getOpptyRecordTypes();
         Test.stopTest();
 
         System.assert(i == ortLst.size(), 
@@ -22,7 +22,7 @@ private class OTRT_OpptyRecordTypeController_Test {
 
         Schema.DescribeSObjectResult d = SObjectUtils.getDescribeSObjectResult('Opportunity');
         Map<String,Schema.RecordTypeInfo> rtMapByName = d.getRecordTypeInfosByName();
-        for (OTRT_OpportunityRecordTypeController.OpptyRecordType ort : ortLst) {
+        for (OTRT_OpptyRecordTypeController.OpptyRecordType ort : ortLst) {
             Id rtId = rtMapByName.get(ort.Name).getRecordTypeId();
             System.assertEquals(rtId, ort.Id, 
                                 'Expected to have the matching record type Id.');

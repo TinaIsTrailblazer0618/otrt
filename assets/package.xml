@@ -5,9 +5,9 @@
     <members>OTRT_NoteContentDecoder_Test</members>
     <members>OTRT_NoteSearchController</members>
     <members>OTRT_NoteSearchController_Test</members>
-    <members>OTRT_OpportunityRecordTypeController</members>
+    <members>OTRT_OpptyRecordTypeController</members>
     <members>OTRT_OpptyRecordTypeController_Test</members>
-    <members>OTRT_OpportunitySearchResultsController</members>
+    <members>OTRT_OpptySearchResultsController</members>
     <members>OTRT_OpptySearchResultsController_Test</members>
     <name>ApexClass</name>
 </types>

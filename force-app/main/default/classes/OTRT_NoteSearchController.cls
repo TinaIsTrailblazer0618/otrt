@@ -51,7 +51,7 @@ public with sharing class OTRT_NoteSearchController {
         System.debug('contentDocumentIds in OTRT_NoteSearchController: ' + contentDocumentIds);
         System.debug('modifiedStartDate in OTRT_NoteSearchController: ' + modifiedStartDate);
         System.debug('modifiedEndDate in OTRT_NoteSearchController: ' + modifiedEndDate);
-        DateTime newDateTime = OTRT_OpportunitySearchResultsController.convertDateToEndOfDay(modifiedEndDate);
+        DateTime newDateTime = OTRT_OpptySearchResultsController.convertDateToEndOfDay(modifiedEndDate);
         System.debug('converted modifiedEndDate in OTRT_NoteSearchController: ' + newDateTime);
         noteList = [SELECT Id, Title, ContentModifiedDate, Owner.Name
                     FROM ContentNote

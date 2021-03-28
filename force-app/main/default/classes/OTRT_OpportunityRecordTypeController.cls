@@ -1,10 +1,10 @@
 /**
  * @author Tina Chang
- * @name OTRT_OpportunityRecordTypeController
+ * @name OTRT_OpptyRecordTypeController
  * @builtDate 8th July, 2020
  * @description Controller for OTRT_OpportunitySearchFormCmp
 **/
-public with sharing class OTRT_OpportunityRecordTypeController {
+public with sharing class OTRT_OpptyRecordTypeController {
 
     @AuraEnabled
     public static List<OpptyRecordType> getOpptyRecordTypes() {

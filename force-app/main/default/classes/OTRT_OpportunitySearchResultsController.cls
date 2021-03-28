@@ -1,10 +1,10 @@
 /**
  * @author Tina Chang
- * @name OTRT_OpportunitySearchResultsController
+ * @name OTRT_OpptySearchResultsController
  * @builtDate 8th July, 2020
  * @description Controller for OTRT_OpportunitySearchResultsCmp
 **/
-public with sharing class OTRT_OpportunitySearchResultsController {
+public with sharing class OTRT_OpptySearchResultsController {
     
     @TestVisible static String strSOQLOppty;
     static DateTime contentModifiedStartDate;
@@ -147,8 +147,8 @@ public with sharing class OTRT_OpportunitySearchResultsController {
         DateTime modifiedStartDate = contentModifiedStartDate;
         DateTime modifiedEndDate = contentModifiedEndDate;
         DateTime newDateTime = convertDateToEndOfDay(modifiedEndDate);
-        System.debug('modifiedStartDate in OTRT_OpportunitySearchResultsController: ' + modifiedStartDate);
-        System.debug('modifiedEndDate in OTRT_OpportunitySearchResultsController: ' + newDateTime);
+        System.debug('modifiedStartDate in OTRT_OpptySearchResultsController: ' + modifiedStartDate);
+        System.debug('modifiedEndDate in OTRT_OpptySearchResultsController: ' + newDateTime);
         // Instantiate a map with content notes revised greater or equal "noteModifiedStartDate"
         Map<Id, ContentNote> noteMap = new Map<Id, ContentNote> ([SELECT Id, Title, ContentModifiedDate 
                                                                     FROM ContentNote 

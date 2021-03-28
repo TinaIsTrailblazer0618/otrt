@@ -1,4 +1,4 @@
-<aura:component controller="OTRT_OpportunitySearchResultsController">
+<aura:component controller="OTRT_OpptySearchResultsController">
     <!-- AURA ATTRIBUTE -->
     <aura:attribute name="oppties" type="Opportunity[]"/>
     <aura:attribute name="data" type="Object"/>

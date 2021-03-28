@@ -30,15 +30,15 @@ private class OTRT_OpptySearchResultsController_Test {
         Boolean isShowingClosedWonOppties = false;
         Boolean isShowingClosedLostOppties = false;
         Test.startTest();
-        List<Opportunity> oppLst = OTRT_OpportunitySearchResultsController.getOpportunities(ConstantsSelector.RT_ID_OPP_CEB, 
+        List<Opportunity> oppLst = OTRT_OpptySearchResultsController.getOpportunities(ConstantsSelector.RT_ID_OPP_CEB, 
                                                                                             isShowingOpenOppties, 
                                                                                             isShowingClosedWonOppties,
                                                                                             isShowingClosedLostOppties,
                                                                                             ConstantsSelector.NOTE_MODIFIED_START_DATE,
                                                                                             ConstantsSelector.NOTE_MODIFIED_End_DATE);
         Test.stopTest();
-        System.debug(OTRT_OpportunitySearchResultsController.strSOQLOppty);
-        // Database.query(OTRT_OpportunitySearchResultsController.strSOQLOppty);
+        System.debug(OTRT_OpptySearchResultsController.strSOQLOppty);
+        // Database.query(OTRT_OpptySearchResultsController.strSOQLOppty);
         System.assertEquals(0, oppLst.size(), 'Expected to have returned 0 opportunities.');                                             
     }
 
@@ -55,7 +55,7 @@ private class OTRT_OpptySearchResultsController_Test {
         Boolean isShowingClosedWonOppties = true;
         Boolean isShowingClosedLostOppties = true;
         Test.startTest();
-        List<Opportunity> oppLst = OTRT_OpportunitySearchResultsController.getOpportunities(ConstantsSelector.RT_ID_OPP_CEB, 
+        List<Opportunity> oppLst = OTRT_OpptySearchResultsController.getOpportunities(ConstantsSelector.RT_ID_OPP_CEB, 
                                                                                             isShowingOpenOppties, 
                                                                                             isShowingClosedWonOppties,
                                                                                             isShowingClosedLostOppties,
@@ -78,7 +78,7 @@ private class OTRT_OpptySearchResultsController_Test {
         Boolean isShowingClosedWonOppties = true;
         Boolean isShowingClosedLostOppties = false;
         Test.startTest();
-        List<Opportunity> oppLst = OTRT_OpportunitySearchResultsController.getOpportunities(ConstantsSelector.RT_ID_OPP_CEB, 
+        List<Opportunity> oppLst = OTRT_OpptySearchResultsController.getOpportunities(ConstantsSelector.RT_ID_OPP_CEB, 
                                                                                             isShowingOpenOppties, 
                                                                                             isShowingClosedWonOppties,
                                                                                             isShowingClosedLostOppties,
@@ -101,7 +101,7 @@ private class OTRT_OpptySearchResultsController_Test {
         Boolean isShowingClosedWonOppties = false;
         Boolean isShowingClosedLostOppties = true;
         Test.startTest();
-        List<Opportunity> oppLst = OTRT_OpportunitySearchResultsController.getOpportunities(ConstantsSelector.RT_ID_OPP_CEB, 
+        List<Opportunity> oppLst = OTRT_OpptySearchResultsController.getOpportunities(ConstantsSelector.RT_ID_OPP_CEB, 
                                                                                             isShowingOpenOppties, 
                                                                                             isShowingClosedWonOppties,
                                                                                             isShowingClosedLostOppties,
@@ -124,7 +124,7 @@ private class OTRT_OpptySearchResultsController_Test {
         Boolean isShowingClosedWonOppties = true;
         Boolean isShowingClosedLostOppties = true;
         Test.startTest();
-        List<Opportunity> oppLst = OTRT_OpportunitySearchResultsController.getOpportunities(ConstantsSelector.RT_ID_OPP_CEB, 
+        List<Opportunity> oppLst = OTRT_OpptySearchResultsController.getOpportunities(ConstantsSelector.RT_ID_OPP_CEB, 
                                                                                             isShowingOpenOppties, 
                                                                                             isShowingClosedWonOppties,
                                                                                             isShowingClosedLostOppties,
@@ -147,7 +147,7 @@ private class OTRT_OpptySearchResultsController_Test {
         Boolean isShowingClosedWonOppties = false;
         Boolean isShowingClosedLostOppties = false;
         Test.startTest();
-        List<Opportunity> oppLst = OTRT_OpportunitySearchResultsController.getOpportunities(ConstantsSelector.RT_ID_OPP_CEB, 
+        List<Opportunity> oppLst = OTRT_OpptySearchResultsController.getOpportunities(ConstantsSelector.RT_ID_OPP_CEB, 
                                                                                             isShowingOpenOppties, 
                                                                                             isShowingClosedWonOppties,
                                                                                             isShowingClosedLostOppties,
@@ -170,7 +170,7 @@ private class OTRT_OpptySearchResultsController_Test {
         Boolean isShowingClosedWonOppties = true;
         Boolean isShowingClosedLostOppties = false;
         Test.startTest();
-        List<Opportunity> oppLst = OTRT_OpportunitySearchResultsController.getOpportunities(ConstantsSelector.RT_ID_OPP_CEB, 
+        List<Opportunity> oppLst = OTRT_OpptySearchResultsController.getOpportunities(ConstantsSelector.RT_ID_OPP_CEB, 
                                                                                             isShowingOpenOppties, 
                                                                                             isShowingClosedWonOppties,
                                                                                             isShowingClosedLostOppties,
@@ -193,7 +193,7 @@ private class OTRT_OpptySearchResultsController_Test {
         Boolean isShowingClosedWonOppties = false;
         Boolean isShowingClosedLostOppties = true;
         Test.startTest();
-        List<Opportunity> oppLst = OTRT_OpportunitySearchResultsController.getOpportunities(ConstantsSelector.RT_ID_OPP_CEB, 
+        List<Opportunity> oppLst = OTRT_OpptySearchResultsController.getOpportunities(ConstantsSelector.RT_ID_OPP_CEB, 
                                                                                             isShowingOpenOppties, 
                                                                                             isShowingClosedWonOppties,
                                                                                             isShowingClosedLostOppties,
@@ -218,7 +218,7 @@ private class OTRT_OpptySearchResultsController_Test {
         Boolean isShowingClosedWonOppties = false;
         Boolean isShowingClosedLostOppties = true;
         Test.startTest();
-        List<Opportunity> oppLst = OTRT_OpportunitySearchResultsController.getOpportunities(ConstantsSelector.RT_ID_OPP_CEB, 
+        List<Opportunity> oppLst = OTRT_OpptySearchResultsController.getOpportunities(ConstantsSelector.RT_ID_OPP_CEB, 
                                                                                             isShowingOpenOppties, 
                                                                                             isShowingClosedWonOppties,
                                                                                             isShowingClosedLostOppties,
@@ -249,7 +249,7 @@ private class OTRT_OpptySearchResultsController_Test {
         Test.startTest();
         System.runAs(u) {
             try {
-                OTRT_OpportunitySearchResultsController.getOpportunities(ConstantsSelector.RT_ID_OPP_CEB, 
+                OTRT_OpptySearchResultsController.getOpportunities(ConstantsSelector.RT_ID_OPP_CEB, 
                                                                         isShowingOpenOppties, 
                                                                         isShowingClosedWonOppties,
                                                                         isShowingClosedLostOppties,

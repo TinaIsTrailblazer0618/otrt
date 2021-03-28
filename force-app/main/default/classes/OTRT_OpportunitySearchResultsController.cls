@@ -169,7 +169,8 @@ public with sharing class OTRT_OpptySearchResultsController {
         // Instantiate a list with related content document links and store each associated link entity Id
         List<ContentDocumentLink> cdls = [SELECT ContentDocumentId, LinkedEntityId 
                                             FROM ContentDocumentLink 
-                                            WHERE ContentDocumentId IN :queryNote()];
+                                            WHERE ContentDocumentId IN :queryNote()
+                                            WITH SECURITY_ENFORCED];
         // Loop through the content document links list to search for oppty Ids
         // Those oppty records will be passed into the lightning component data table
         opptyIds = new Set<Id>();     

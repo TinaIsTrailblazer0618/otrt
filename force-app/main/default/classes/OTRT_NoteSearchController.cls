@@ -42,7 +42,8 @@ public with sharing class OTRT_NoteSearchController {
         Set<Id> contentDocumentIds = new Set<Id>();
         List<ContentDocumentLink> cdls = [SELECT ContentDocumentId FROM ContentDocumentLink
                                             WHERE ContentDocument.FileType = :sNOTE
-                                            AND LinkedEntityId = :opptyId];
+                                            AND LinkedEntityId = :opptyId
+                                            WITH SECURITY_ENFORCED];
         if (cdls.size() > 0) {
             for (ContentDocumentLink cdl : cdls) {
                 contentDocumentIds.add(cdl.ContentDocumentId);

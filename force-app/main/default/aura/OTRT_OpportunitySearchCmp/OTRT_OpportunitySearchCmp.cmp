@@ -1,0 +1,18 @@
+<aura:component implements="flexipage:availableForAllPageTypes">
+    <!-- EVENT -->
+    <aura:handler name="formSubmit" event="c:OTRT_FormSubmitEvt"
+        action="{!c.onFormSubmit}"/>
+
+    <!-- LAYOUT -->
+    <!-- FIND A OPPORTUNITY -->
+    <lightning:card title="Find an Opportunity" class="slds-m-bottom_10px">
+        <c:OTRT_OpportunitySearchFormCmp aura:id="opptySearchForm"/>
+    </lightning:card>
+    <!-- / FIND A OPPORTUNITY -->
+
+    <!-- MATCHING OPPORTUNITIES -->
+    <lightning:card title="Matching Opportunities">
+        <c:OTRT_OpportunitySearchResultsCmp aura:id="opptySearchResults"/>
+    </lightning:card>
+    <!-- / MATCHING OPPORTUNITIES -->
+</aura:component>

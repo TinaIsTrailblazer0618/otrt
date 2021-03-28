@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+<types>
+    <members>OTRT_NoteContentDecoder</members>
+    <members>OTRT_NoteContentDecoder_Test</members>
+    <members>OTRT_NoteSearchController</members>
+    <members>OTRT_NoteSearchController_Test</members>
+    <members>OTRT_OpportunityRecordTypeController</members>
+    <members>OTRT_OpptyRecordTypeController_Test</members>
+    <members>OTRT_OpportunitySearchResultsController</members>
+    <members>OTRT_OpptySearchResultsController_Test</members>
+    <name>ApexClass</name>
+</types>
+<types>
+    <members>OTRT_FormSubmitEvt</members>
+    <members>OTRT_NoteDetailCmp</members>
+    <members>OTRT_NoteDetailsCmp</members>
+    <members>OTRT_OpportunitySearchCmp</members>
+    <members>OTRT_OpportunitySearchFormCmp</members>
+    <members>OTRT_OpportunitySearchResultsCmp</members>
+    <members>OTRT_OpportunitySelectedEvt</members>
+    <name>AuraDefinitionBundle</name>
+</types>
+<version>51.0</version>
+</Package>

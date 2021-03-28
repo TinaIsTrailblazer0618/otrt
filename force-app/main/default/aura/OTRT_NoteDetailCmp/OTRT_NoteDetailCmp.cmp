@@ -1,0 +1,50 @@
+<aura:component controller="OTRT_NoteContentDecoder">
+    <!-- ATTRIBUTE -->
+    <aura:attribute name="note" type="ContentNote"/>
+    <aura:attribute name="content" type="String"/>
+    <aura:attribute name="showButton" type="Boolean" default="false"/>
+    <!-- INIT -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <!-- EVENTS & HANDLERS -->
+    <aura:method name="refresh" action="{!c.doInit}" description="public invokable method from the NoteDetails helper"/>
+    <!-- LAYOUT -->
+    <lightning:card iconName="standard:note">
+        <aura:set attribute="title">
+            <div class="slds-grid slds-truncate_container_75">
+                <span class="slds-truncate">
+                    {!v.note.Title}
+                </span>
+            </div>
+        </aura:set>    
+        <aura:set attribute="actions">
+            <aura:if isTrue="{!v.showButton}">
+                <lightning:button label="Full Details" onclick="{!c.onFullDetails}"/>
+            </aura:if>
+        </aura:set>
+        <lightning:layout class="slds-grid">
+            <!-- Markup - Column -->
+            <lightning:layoutItem class="slds-col slds-size_3-of-4">
+                <div class="slds-p-horizontal--small">
+                    <div class="noteproperty">
+                        <span class="label">Note Owner:</span>                            
+                        <span><p>{!v.note.Owner.Name}</p></span>
+                    </div>
+                    <div class="noteproperty">
+                        <span class="label">Content Modified Date:</span>
+                        <span><p><lightning:formattedDateTime value="{!v.note.ContentModifiedDate}" year="numeric" month="short" day="2-digit" weekday="narrow"/></p></span>
+                    </div>
+                    <div class="noteproperty">
+                        <span class="label">Last Viewed Date:</span>
+                        <span><p><lightning:formattedDateTime value="{!v.note.LastViewedDate}" year="numeric" month="short" day="2-digit" weekday="narrow"/></p></span>
+                    </div>                    
+                    <div class="noteproperty">
+                        <span class="label">Content:</span>      
+                        <span>
+                            <p><lightning:formattedRichText value="{!v.content}"/></p>
+                        </span>
+                    </div>
+                </div>                                
+            </lightning:layoutItem>
+        </lightning:layout>
+    </lightning:card>
+</aura:component>

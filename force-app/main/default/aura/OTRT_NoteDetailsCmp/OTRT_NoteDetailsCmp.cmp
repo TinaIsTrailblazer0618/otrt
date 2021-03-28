@@ -1,0 +1,42 @@
+<aura:component controller="OTRT_NoteSearchController" implements="flexipage:availableForAllPageTypes">
+    <!-- ATTRIBUTES -->
+    <aura:attribute name="oppty" type="Opportunity"/>
+    <aura:attribute name="note" type="ContentNote"/>
+    <aura:attribute name="noteId" type="Id"/>
+    <aura:attribute name="recordError" type="String"/>
+    <aura:attribute name="tabId" type="String" default="details"/>
+    <aura:attribute name="displayMe" type="Boolean" default="false"/>
+    <!-- EVENTS & HANDLERS -->
+    <aura:handler event="c:OTRT_OpportunitySelectedEvt" action="{!c.onOpptySelected}"/> <!-- Application Event Handler from OTRT_OpportunitySearchResultsCmpController-->
+    <!-- LDS -->
+    <force:recordData 
+        aura:id="service"
+        layoutType="FULL"
+        recordId="{!v.noteId}"
+        targetError="{!v.recordError}"
+        targetFields="{!v.note}"
+        fields="Id, 
+                Owner.Name,
+                Title,
+                Content,
+                ContentModifiedDate,
+                LastViewedDate"
+        mode="EDIT"/>
+    <!-- LAYOUT -->
+    <aura:if isTrue="{!not(empty(v.note))}">  
+        <!-- Display notes, if any -->
+        <lightning:tabset aura:id="tabs" selectedTabId="{!v.tabId}" variant="scoped">
+            <lightning:tab onactive="{!c.handleActive}" label="DETAILS" id="details">
+                <c:OTRT_NoteDetailCmp aura:id="noteDetail" note="{!v.note}"/>
+            </lightning:tab>
+            <aura:if isTrue="{!v.displayMe}">
+                <lightning:tab onactive="{!c.handleActive}" label="Tab Two" id="tab2">
+                    Two Content !
+                </lightning:tab>
+                <lightning:tab onactive="{!c.handleActive}" label="Tab Three" id="tab3">
+                    Three Content !
+                </lightning:tab>
+            </aura:if>
+        </lightning:tabset>
+    </aura:if>   
+</aura:component>

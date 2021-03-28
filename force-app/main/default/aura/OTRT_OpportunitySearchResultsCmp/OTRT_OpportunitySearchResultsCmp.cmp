@@ -1,0 +1,102 @@
+<aura:component controller="OTRT_OpportunitySearchResultsController">
+    <!-- AURA ATTRIBUTE -->
+    <aura:attribute name="oppties" type="Opportunity[]"/>
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="doRefresh" type="Boolean" default="false"/>
+    <aura:attribute name="selectedOpptyId" type="String"/>
+    <aura:attribute name="opptyRecordTypeId" type="String"/>
+    <aura:attribute name="isShowingOpenOppties" type="Boolean"/>
+    <aura:attribute name="isShowingClosedWonOppties" type="Boolean"/>
+    <aura:attribute name="isShowingClosedLostOppties" type="Boolean"/>
+    <aura:attribute name="noteModifiedStartDate" type="Date"/>
+    <aura:attribute name="noteModifiedEndDate" type="Date"/>
+    <!-- Pagination in Data Table -->
+    <aura:attribute name="currentPageNumber" type="Integer" default="1"/>
+    <aura:attribute name="pageSize" type="Integer" default="100"/>
+    <aura:attribute name="totalPages" type="Integer" default="0"/>
+    <aura:attribute name="pageList" type="List"/>
+    <!-- Sorting in Data Table -->
+    <aura:attribute name="sortDirection" type="String" default="asc"/>
+    <aura:attribute name="defaultSortDirection" type="String" default="asc"/>
+    <aura:attribute name="sortedBy" type="String"/>
+    <!-- AURA REGISTER EVENT -->
+    <aura:registerEvent name="opptySelected" type="c:OTRT_OpportunitySelectedEvt"/>
+    <!-- AURA HANDLER -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler event="force:showToast" action="{!c.refresh}"/>    
+    <!-- AURA METHOD -->
+    <aura:method name="search" action="{!c.doSearch}" 
+        description="public invokable method by opptyRecordTypeId, opptyStatus, and note last modified date">
+        <aura:attribute name="opptyRecordTypeId" type="String"/>
+        <aura:attribute name="isShowingOpenOppties" type="Boolean"/>
+        <aura:attribute name="isShowingClosedWonOppties" type="Boolean"/>
+        <aura:attribute name="isShowingClosedLostOppties" type="Boolean"/>
+        <aura:attribute name="noteModifiedStartDate" type="Date"/>
+        <aura:attribute name="noteModifiedEndDate" type="Date"/>
+    </aura:method>
+    <!-- LAYOUT -->
+    <aura:if isTrue="{!empty(v.oppties)}">
+        <!-- Display errors, if any -->
+        <lightning:layoutItem class="slds-col slds-align_absolute-center" padding="around-small">
+            <div class="recordError">No Opportunities Found</div>
+        </lightning:layoutItem>    
+        <!-- Display oppties, if any -->
+        <aura:set attribute="else">
+            <div aura:id='downloadButton' class='slds-m-around_medium'>
+                <button class="slds-button slds-button--brand" onclick="{!c.downloadCsv}">Download as CSV</button>
+            </div>
+            <div aura:id="dataTable">     
+                <div style="height: 400px">
+                    <lightning:datatable
+						class="slds-table_striped slds-scrollable_y"
+                        columns="{!v.columns}"
+                        data="{!v.data}"
+                        keyField="id"
+                        onrowaction="{!c.handleRowAction}"
+                        hideCheckboxColumn="true"
+                        showRowNumberColumn="true"
+                        defaultSortDirection="{!v.defaultSortDirection}"
+                        sortedDirection="{!v.sortDirection}"
+                        sortedBy="{!v.sortedBy}"
+                        onsort="{!c.handleSort}"/>
+                </div>
+                <lightning:layout multipleRows="true" horizontalAlign="center">
+                    <lightning:layoutItem padding="around-small" flexibility="auto">
+                        <lightning:button label="First" iconName="utility:left" iconPosition="left"
+                            onclick="{!c.onFirst}" disabled="{! v.currentPageNumber == 1}"/>
+                        <lightning:button iconName="utility:chevronleft" iconPosition="left"
+                            onclick="{!c.onPrev}" disabled="{! v.currentPageNumber == 1}"/>
+                        <span class="slds-p-horizontal_x-small">
+                            <a onclick="{!c.processMe}" name="1" 
+                                class="{! (v.currentPageNumber == 1) ? 'selected' : ''}">1</a>
+                        </span>
+                        <span class="slds-p-horizontal_xxx-small">
+                            <a>...</a>
+                        </span>
+                        
+                        <aura:iteration items="{!v.pageList}" var="item">
+                            <span class="slds-p-horizontal_x-small">
+                                <a onclick="{!c.processMe}" name="{!item}"
+                                    class="{! (v.currentPageNumber == item) ? 'selected' : ''}">{!item}</a>
+                            </span>
+                        </aura:iteration>
+                        
+                        <span class="slds-p-horizontal_xxx-small">
+                            <a>...</a>
+                        </span>
+                        <span class="slds-p-horizontal_x-small">
+                            <a onclick="{!c.processMe}" name="{!v.totalPages}"
+                                class="{! (v.currentPageNumber == v.totalPages) ? 'selected' : ''}">{!v.totalPages}</a>
+                        </span>
+                        <lightning:button iconName="utility:chevronright" iconPosition="right" 
+                            disabled="{! v.currentPageNumber == v.totalPages}" onclick="{!c.onNext}"/>
+                        <lightning:button label="Last" iconName="utility:right" iconPosition="right" 
+                            disabled="{! v.currentPageNumber == v.totalPages}" onclick="{!c.onLast}"/>
+                    </lightning:layoutItem>
+                </lightning:layout>
+            </div>
+        </aura:set>
+    </aura:if> 
+</aura:component>

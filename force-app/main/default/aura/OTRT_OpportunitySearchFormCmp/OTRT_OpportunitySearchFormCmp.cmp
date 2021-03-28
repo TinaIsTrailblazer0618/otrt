@@ -1,0 +1,78 @@
+<aura:component controller="OTRT_OpportunityRecordTypeController" implements="flexipage:availableForAllPageTypes">
+    <!-- ATTRIBUTE -->
+    <aura:attribute name="opptyRecordTypeOptions" type="OTRT_OpportunityRecordTypeController.OpptyRecordType[]"/>
+    <aura:attribute name="selectedOpptyRecordType" type="String"/>
+    <aura:attribute name="selectedNoteModifiedStartDate" type="Date"/>
+    <aura:attribute name="selectedNoteModifiedEndDate" type="Date"/>
+    <aura:attribute name="isShowingOpenOppties" type="Boolean" default="true"/>
+    <aura:attribute name="isShowingClosedWonOppties" type="Boolean" default="true"/>
+    <aura:attribute name="isShowingClosedLostOppties" type="Boolean" default="false"/>
+    <aura:attribute name="showButton" type="Boolean"/>
+    <aura:attribute name="missingRecordTypeError" type="String" default=" "/>
+    <aura:attribute name="missingDateRangeError" type="String" default=" "/>
+    <aura:attribute name="incorrectDateRangeError" type="String" default=" "/>
+    <!-- EVENT -->
+    <aura:registerEvent name="formSubmit" type="c:OTRT_FormSubmitEvt"/>
+    <!-- INIT -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <!-- LAYOUT -->
+    <div class="searchForm"> 
+        <lightning:layout class="slds-grid">
+            <lightning:layoutItem class="slds-col" size="4" padding="around-small">
+                <lightning:select name="recordTypeId" label="Select a Record Type" variant="label-inline" aura:id="recordTypeId"
+                    value="{!v.selectedOpptyRecordType}">
+                    <option value="">All Record Types</option>
+                    <aura:iteration items="{!v.opptyRecordTypeOptions}" var="opptyRecordTypeOption">           
+                        <option text="{!opptyRecordTypeOption.name}" value="{!opptyRecordTypeOption.id}"/>
+                    </aura:iteration>
+                </lightning:select>
+            </lightning:layoutItem>
+            <lightning:layoutItem class="slds-col" size="4" padding="around-small">
+                <lightning:input type="date" name="noteModifiedDateRange" label="Show Notes Last Modified Start Date" 
+                    placeholder="Pick a Date" value="{!v.selectedNoteModifiedStartDate}"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem class="slds-col" size="4" padding="around-small">
+                <lightning:input type="date" name="noteModifiedDateRange" label="Show Notes Last Modified End Date" 
+                    placeholder="Pick a Date" value="{!v.selectedNoteModifiedEndDate}"/>
+            </lightning:layoutItem>            
+        </lightning:layout>
+        <lightning:layout class="slds-grid_vertical">
+            <lightning:layoutItem class="slds-col" size="8" padding="around-small">
+                <lightning:input
+                    aura:id="inputToggle1"
+                    type="toggle" 
+                    label="Show Open Opportunities" 
+                    messageToggleActive="Yes"
+                    messageToggleInactive="No"
+                    checked="{!v.isShowingOpenOppties}"
+                    onchange="{!c.handleToggleChange_one}"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem class="slds-col" size="8" padding="around-small">
+                <lightning:input
+                    aura:id="inputToggle2"
+                    type="toggle" 
+                    label="Show Closed Won Opportunities" 
+                    messageToggleActive="Yes"
+                    messageToggleInactive="No"
+                    checked="{!v.isShowingClosedWonOppties}"
+                    onchange="{!c.handleToggleChange_two}"/>
+            </lightning:layoutItem> 
+            <lightning:layoutItem class="slds-col" size="8" padding="around-small">
+                <lightning:input
+                    aura:id="inputToggle3"
+                    type="toggle" 
+                    label="Show Closed Lost Opportunities" 
+                    messageToggleActive="Yes"
+                    messageToggleInactive="No"
+                    checked="{!v.isShowingClosedLostOppties}"
+                    onchange="{!c.handleToggleChange_three}"/>
+            </lightning:layoutItem>                                      
+            <lightning:layoutItem class="slds-col slds-align_absolute-center" padding="around-small">
+                <lightning:button variant="brand" name="search" label="Search" onclick="{!c.onFormSubmit}"/>
+                    <aura:if isTrue="{!v.showButton}">
+                        <lightning:button variant="neutral" name="new" label="New" onclick="{!c.handleCreateOppty}"/>
+                    </aura:if>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </div>
+</aura:component>

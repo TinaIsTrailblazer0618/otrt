@@ -1,0 +1,5 @@
+<aura:event type="COMPONENT" 
+	description="Pass Oppty record type Id and apply filters (if selected) 
+				from OTRT_OpptySearchFormCmp onto OTRT_OpptySearchCmp">
+	<aura:attribute name="formData" type="Object"/>
+</aura:event>

@@ -1,0 +1,5 @@
+<aura:event type="APPLICATION" description="OTRT_OpportunitySearchResultsCmp fires an event that OTRT_NoteDetailsCmp handles">
+	<aura:attribute name="oppty" type="Opportunity"/>
+	<aura:attribute name="noteModifiedStartDate" type="Date"/>
+	<aura:attribute name="noteModifiedEndDate" type="Date"/>
+</aura:event>

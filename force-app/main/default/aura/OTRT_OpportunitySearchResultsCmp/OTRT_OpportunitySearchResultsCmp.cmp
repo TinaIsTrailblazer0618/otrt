@@ -87,6 +87,7 @@
                         <lightning:datatable
                             class="slds-table_striped slds-scrollable_y"
                             columns="{!v.columnsM}"
+                            column-widths-mode="auto"
                             data="{!v.data}"
                             keyField="id"
                             onrowaction="{!c.handleRowAction}"

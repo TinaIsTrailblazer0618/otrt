@@ -37,10 +37,10 @@
         ]);
         component.set('v.columnsM', [
             {type: 'action', typeAttributes: {rowActions: actions}},
-            {label: 'Opportunity Owner', fieldName: 'OpportunityOwner', type: 'text', sortable: true, initialWidth: 150},
-            {label: 'Opportunity Name', fieldName: 'Name', type: 'text', initialWidth: 130, wrapText: true},
-            {label: 'Stage', fieldName: 'StageName', type: 'text', sortable: true, initialWidth: 80},
-            {label: 'Competitor', fieldName: 'Competitor__c', type: 'text', initialWidth: 100, wrapText: true},
+            {label: 'Opportunity Owner', fieldName: 'OpportunityOwner', type: 'text', sortable: true},
+            {label: 'Opportunity Name', fieldName: 'Name', type: 'text', wrapText: true},
+            {label: 'Stage', fieldName: 'StageName', type: 'text', sortable: true},
+            {label: 'Competitor', fieldName: 'Competitor__c', type: 'text', wrapText: true},
         ]);               
     },
 

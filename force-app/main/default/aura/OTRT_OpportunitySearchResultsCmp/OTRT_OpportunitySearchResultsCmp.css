@@ -7,7 +7,7 @@
 }
 
 .THIS .placeholder-image {
-    background-image: url(/resource/LWCPlaceholderImage); 
+    background-image: url(/resource/LWCPlaceholderImage?); 
     background-size: cover; 
     background-position: center; 
     height: 250px; 
